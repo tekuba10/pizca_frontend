@@ -175,3 +175,76 @@ Pizca API
 El frontend no accede directamente a la base de datos, Redis, workers ni servicios internos del backend.
 
 Toda comunicación se realiza a través de Pizca API.
+
+## Convención de commits
+
+El proyecto utiliza **Conventional Commits** para mantener un historial de Git claro, consistente y fácil de revisar.
+
+Formato:
+
+```text
+tipo(área): descripción corta
+```
+
+### Tipos
+
+| Tipo | Uso |
+|---|---|
+| `feat` | Nueva funcionalidad |
+| `fix` | Corrección de errores |
+| `refactor` | Reorganización de código sin cambiar su comportamiento |
+| `style` | Cambios visuales o de estilos |
+| `test` | Creación o modificación de tests |
+| `docs` | Cambios de documentación |
+| `chore` | Configuración, dependencias, Docker o tooling |
+
+### Áreas
+
+Utilizar como área la parte del frontend afectada por el cambio.
+
+Áreas habituales:
+
+```text
+auth
+imports
+library
+recipes
+cooking
+conversation
+api
+router
+ui
+layout
+docker
+config
+```
+
+Se pueden añadir nuevas áreas cuando la arquitectura del frontend lo requiera.
+
+### Ejemplos
+
+```text
+feat(auth): add login page
+feat(imports): add recipe import form
+feat(cooking): add step navigation
+fix(api): handle unauthorized responses
+style(ui): add recipe card styles
+refactor(api): simplify request client
+test(auth): add login tests
+docs(readme): document local development
+chore(docker): update development container
+```
+
+### Regla principal
+
+Un commit debe representar **un cambio lógico y coherente que funcione por sí mismo**.
+
+No se crean commits por cada archivo modificado ni se agrupan cambios independientes únicamente por haberse realizado al mismo tiempo.
+
+Antes de realizar un commit:
+
+1. Comprobar los archivos modificados con `git status`.
+2. Añadir únicamente los archivos relacionados con el cambio.
+3. Comprobar que el proyecto compila y funciona.
+4. Realizar el commit siguiendo la convención definida.
+
